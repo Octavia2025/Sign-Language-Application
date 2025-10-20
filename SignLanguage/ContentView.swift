@@ -7,40 +7,43 @@
 import SwiftUI
 struct ContentView: View {
     var body: some View {
-        VStack {
-            
-            Text("Hello, World!")
-                .font(.largeTitle)
-                .foregroundColor(.blue)
-                .padding()
+        NavigationView{
+            VStack {
+                
+                Text("Compare ASL and ZSL")
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+                    .offset(y: 120)
+                Text("Explore two different sign languages")
+                    .foregroundColor(.black)
+                    .offset(y: 120)
+                   
+                
+                
+                ZStack {
+                    
 
-            
-            ZStack {
-                
-                HStack(spacing: 0) {
-                    Rectangle()
-                        .fill(Color.blue.opacity(0.3))
-                    Rectangle()
-                        .fill(Color.cyan.opacity(0.3))
-                }
-                
-                
-                HStack {
-                    Image("k1")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
+                    
+                    
+                    Capsule()
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: 200, height: 50)
                         .padding()
-
-                    Image("k2")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                        .padding()
+                        .offset(y: 250)
+                    NavigationLink("Start Comparing"){
+                        Selection()
+                            
+                    }
+                    .offset(y: 250)
+                        
                 }
+                .frame(height: 300)
             }
-            .frame(height: 300)
+            .padding()
         }
-        .padding()
     }
+}
+
+#Preview {
+    ContentView()
 }
