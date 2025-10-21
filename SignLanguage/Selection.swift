@@ -22,7 +22,6 @@ struct Selection: View {
                 NavigationLink("Greetings"){}
                 NavigationLink("Family and Relationships"){}
                 NavigationLink("Health and Body parts"){}
-//                NavigationLink("Transportation"){}
                 NavigationLink("Recreation and  hobbies"){}
                 NavigationLink("School and work"){}
                 
