@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
+import AVKit
+var player: AVAudioPlayer?
 
 struct AnimalsFoodNature: View {
+    @State var isPlaying: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+        }
+       
     }
 }
 
