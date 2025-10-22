@@ -18,6 +18,8 @@ struct AnimalsFoodNature: View {
                     CowVideoCard()
                     FishVideoCard()
                     HorseVideoCard()
+                    RabbitVideoCard()
+                    PigVideoCard()
                 }
                 .padding()
             }
@@ -168,6 +170,53 @@ struct DuckVideoCard: View {
         )
     }
 }
+// Rabbit Video Card
+struct RabbitVideoCard: View {
+    let videoNames = ["RabbitZ 2", "RabbitA 2"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var thirdPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Rabbit - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Pig Video Card
+struct PigVideoCard: View {
+    let videoNames = ["PigZ 2", "PigA 2"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var thirdPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Pig - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+    
 // Video Card View
 
 struct VideoCardView: View {
