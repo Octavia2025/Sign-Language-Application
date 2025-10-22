@@ -8,17 +8,16 @@
 import SwiftUI
 import AVKit
 
-
-
 struct AnimalsFoodNature: View {
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
                     ChickenVideoCard()
-                    LikeVideoCard()
-
-                    
+                    GoatVideoCard()
+                    CowVideoCard()
+                    FishVideoCard()
+                    HorseVideoCard()
                 }
                 .padding()
             }
@@ -27,9 +26,33 @@ struct AnimalsFoodNature: View {
     }
 }
 
-
+//  Chicken Video Card
 
 struct ChickenVideoCard: View {
+    let videoNames = ["ChickenZ 2", "ChickenA 3"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Chicken - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+
+//  Goat Video Card
+
+struct GoatVideoCard: View {
     let videoNames = ["GoatZ 2", "GoatA 2"]
 
     @State private var currentIndex = 0
@@ -39,8 +62,127 @@ struct ChickenVideoCard: View {
     @State private var rotationAngle: Double = 0
 
     var body: some View {
+        VideoCardView(
+            title: "Goat - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+
+// Cow Video Card
+
+struct CowVideoCard: View {
+    let videoNames = ["CowZ 2", "cowA 2"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Cow - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+
+// Fish Video Card
+
+struct FishVideoCard: View {
+    let videoNames = ["FishZ 2", "FishA 2"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Fish - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+// Horse Video Card
+struct HorseVideoCard: View {
+    let videoNames = ["HorseZ 2", "HorseA 2"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var thirdPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Horse - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Duck Video Card
+
+struct DuckVideoCard: View {
+    let videoNames = ["DuckZ 2", "DuckA 2"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var thirdPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Duck - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+// Video Card View
+
+struct VideoCardView: View {
+    let title: String
+    let videoNames: [String]
+
+    @Binding var currentIndex: Int
+    @Binding var firstPlayer: AVPlayer
+    @Binding var secondPlayer: AVPlayer
+    @Binding var isFirstPlayerActive: Bool
+    @Binding var rotationAngle: Double
+
+    var body: some View {
         VStack {
-            Text("Goat - ZSL and ASL")
+            Text(title)
                 .font(.title2.bold())
                 .padding(.bottom, 5)
 
@@ -48,10 +190,7 @@ struct ChickenVideoCard: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.black.opacity(0.2))
                     .frame(height: 300)
-                    .rotation3DEffect(
-                        .degrees(rotationAngle),
-                        axis: (x: 0, y: 1, z: 0)
-                    )
+                    .rotation3DEffect(.degrees(rotationAngle), axis: (x: 0, y: 1, z: 0))
                     .animation(.easeInOut(duration: 0.6), value: rotationAngle)
 
                 VideoPlayer(player: firstPlayer)
@@ -75,7 +214,7 @@ struct ChickenVideoCard: View {
                 Text("Flip to ASL")
                     .font(.subheadline)
                     .padding()
-                    .background(Color.green)
+                    .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
@@ -89,7 +228,7 @@ struct ChickenVideoCard: View {
             player.replaceCurrentItem(with: AVPlayerItem(url: url))
             player.seek(to: .zero)
         } else {
-            print("Video \(name) not found!")
+            print("⚠️ Video \(name) not found!")
         }
     }
 
@@ -119,33 +258,7 @@ struct ChickenVideoCard: View {
     }
 }
 
-// MARK: - Like Video Card
-
-struct LikeVideoCard: View {
-    @State private var player = AVPlayer()
-
-    var body: some View {
-        VStack {
-            Text("Chicken - ZSL and ASL")
-                .font(.title2)
-                .bold()
-                .padding(.bottom, 5)
-
-            VideoPlayer(player: player)
-                .frame(height: 300)
-                .cornerRadius(10)
-                .onAppear {
-                    if let url = Bundle.main.url(forResource: "ChickenZ 2", withExtension: "mov") {
-                        player.replaceCurrentItem(with: AVPlayerItem(url: url))
-                        player.play()
-                    } else {
-                        print("LikeVideo.mov not found!")
-                    }
-                }
-        }
-        .padding()
-    }
-}
+//  Preview
 
 #Preview {
     AnimalsFoodNature()
