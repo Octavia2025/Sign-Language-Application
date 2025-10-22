@@ -9,22 +9,56 @@ import SwiftUI
 import AVKit
 
 struct AnimalsFoodNature: View {
+    @State private var searchText = ""
+
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    ChickenVideoCard()
-                    GoatVideoCard()
-                    CowVideoCard()
-                    FishVideoCard()
-                    HorseVideoCard()
-                    RabbitVideoCard()
-                    PigVideoCard()
+            VStack {
+                // Search Bar
+                TextField("Search", text: $searchText)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+
+                ScrollView {
+                    VStack(spacing: 20) {
+                        if searchMatches("Chicken") {
+                            ChickenVideoCard()
+                        }
+                        if searchMatches("Goat") {
+                            GoatVideoCard()
+                        }
+                        if searchMatches("Cow") {
+                            CowVideoCard()
+                        }
+                        if searchMatches("Fish") {
+                            FishVideoCard()
+                        }
+                        if searchMatches("Horse") {
+                            HorseVideoCard()
+                        }
+                        if searchMatches("Rabbit") {
+                            RabbitVideoCard()
+                        }
+                        if searchMatches("Pig") {
+                            PigVideoCard()
+                        }
+                        if searchMatches("Duck"){
+                            DuckVideoCard()
+                        }
+                    }
+                    .padding()
                 }
-                .padding()
+                .navigationTitle("Animals")
             }
-            .navigationTitle("Animals")
         }
+    }
+
+    // Helper search filter
+    private func searchMatches(_ name: String) -> Bool {
+        return searchText.isEmpty || name.lowercased().contains(searchText.lowercased())
     }
 }
 
@@ -123,14 +157,15 @@ struct FishVideoCard: View {
         )
     }
 }
+
 // Horse Video Card
+
 struct HorseVideoCard: View {
     let videoNames = ["HorseZ 2", "HorseA 2"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
     @State private var secondPlayer = AVPlayer()
-    @State private var thirdPlayer = AVPlayer()
     @State private var isFirstPlayerActive = true
     @State private var rotationAngle: Double = 0
 
@@ -146,38 +181,15 @@ struct HorseVideoCard: View {
         )
     }
 }
-//Duck Video Card
 
-struct DuckVideoCard: View {
-    let videoNames = ["DuckZ 2", "DuckA 2"]
-
-    @State private var currentIndex = 0
-    @State private var firstPlayer = AVPlayer()
-    @State private var secondPlayer = AVPlayer()
-    @State private var thirdPlayer = AVPlayer()
-    @State private var isFirstPlayerActive = true
-    @State private var rotationAngle: Double = 0
-
-    var body: some View {
-        VideoCardView(
-            title: "Duck - ZSL and ASL",
-            videoNames: videoNames,
-            currentIndex: $currentIndex,
-            firstPlayer: $firstPlayer,
-            secondPlayer: $secondPlayer,
-            isFirstPlayerActive: $isFirstPlayerActive,
-            rotationAngle: $rotationAngle
-        )
-    }
-}
 // Rabbit Video Card
+
 struct RabbitVideoCard: View {
     let videoNames = ["RabbitZ 2", "RabbitA 2"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
     @State private var secondPlayer = AVPlayer()
-    @State private var thirdPlayer = AVPlayer()
     @State private var isFirstPlayerActive = true
     @State private var rotationAngle: Double = 0
 
@@ -193,14 +205,15 @@ struct RabbitVideoCard: View {
         )
     }
 }
-//Pig Video Card
+
+// Pig Video Card
+
 struct PigVideoCard: View {
     let videoNames = ["PigZ 2", "PigA 2"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
     @State private var secondPlayer = AVPlayer()
-    @State private var thirdPlayer = AVPlayer()
     @State private var isFirstPlayerActive = true
     @State private var rotationAngle: Double = 0
 
@@ -216,8 +229,31 @@ struct PigVideoCard: View {
         )
     }
 }
-    
-// Video Card View
+// Pig Video Card
+
+struct DuckVideoCard: View {
+    let videoNames = ["DuckZ 2", "DuckA 2"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Duck - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+
+// Shared Video Card View
 
 struct VideoCardView: View {
     let title: String
@@ -245,12 +281,10 @@ struct VideoCardView: View {
                 VideoPlayer(player: firstPlayer)
                     .opacity(isFirstPlayerActive ? 1 : 0)
                     .frame(height: 300)
-                    .animation(.easeInOut(duration: 0.6), value: isFirstPlayerActive)
 
                 VideoPlayer(player: secondPlayer)
                     .opacity(isFirstPlayerActive ? 0 : 1)
                     .frame(height: 300)
-                    .animation(.easeInOut(duration: 0.6), value: isFirstPlayerActive)
             }
             .onAppear {
                 playVideo(named: videoNames[currentIndex], on: firstPlayer)
@@ -270,45 +304,29 @@ struct VideoCardView: View {
             .padding(.top, 8)
         }
         .padding()
+       
     }
-
+    
     private func playVideo(named name: String, on player: AVPlayer) {
         if let url = Bundle.main.url(forResource: name, withExtension: "mov") {
             player.replaceCurrentItem(with: AVPlayerItem(url: url))
-            player.seek(to: .zero)
-        } else {
-            print("⚠️ Video \(name) not found!")
         }
     }
 
     private func flipToNextVideo() {
-        withAnimation {
-            rotationAngle += 180
-        }
+        withAnimation { rotationAngle += 180 }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             currentIndex = (currentIndex + 1) % videoNames.count
-            let nextIndex = (currentIndex + 1) % videoNames.count
-
-            if isFirstPlayerActive {
-                playVideo(named: videoNames[currentIndex], on: secondPlayer)
-                secondPlayer.play()
-                firstPlayer.pause()
-                playVideo(named: videoNames[nextIndex], on: firstPlayer)
-            } else {
-                playVideo(named: videoNames[currentIndex], on: firstPlayer)
-                firstPlayer.play()
-                secondPlayer.pause()
-                playVideo(named: videoNames[nextIndex], on: secondPlayer)
-            }
-
             isFirstPlayerActive.toggle()
         }
+        
+       
     }
+   
 }
-
-//  Preview
-
+    
+// Preview
 #Preview {
     AnimalsFoodNature()
 }
