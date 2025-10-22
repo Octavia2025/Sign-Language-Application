@@ -325,6 +325,7 @@ struct VideoCardView: View {
     }
    
 }
+
     
 // Preview
 #Preview {
