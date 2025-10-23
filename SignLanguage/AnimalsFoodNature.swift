@@ -48,6 +48,8 @@ struct AnimalsFoodNature: View {
                         if searchMatches("Duck"){
                             DuckVideoCard()
                         }
+                        
+                            
                     }
                     .padding()
                 }
@@ -252,6 +254,11 @@ struct DuckVideoCard: View {
         )
     }
 }
+    
+
+
+
+
 
 // Shared Video Card View
 
