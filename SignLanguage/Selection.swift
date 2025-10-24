@@ -14,6 +14,7 @@ struct Selection: View {
                 
                 NavigationLink("Animals and Nature"){
                     AnimalsFoodNature()
+                    Colors()
                 }
                 NavigationLink("Emotions"){}
                 NavigationLink("Weather"){}
