@@ -48,6 +48,8 @@ struct AnimalsFoodNature: View {
                         if searchMatches("Duck"){
                             DuckVideoCard()
                         }
+                       
+                        NatureVideosCard()
                         
                             
                     }
@@ -231,7 +233,7 @@ struct PigVideoCard: View {
         )
     }
 }
-// Pig Video Card
+// Duck Video Card
 
 struct DuckVideoCard: View {
     let videoNames = ["DuckZ 2", "DuckA 2"]
@@ -255,6 +257,18 @@ struct DuckVideoCard: View {
     }
 }
     
+struct NatureVideosCard: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Nature")
+                .font(.largeTitle.bold())
+                .padding(.bottom, 10)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+    }
+}
+
 
 
 
@@ -305,6 +319,7 @@ struct VideoCardView: View {
                     .font(.subheadline)
                     .padding()
                     .background(Color.blue)
+    
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
