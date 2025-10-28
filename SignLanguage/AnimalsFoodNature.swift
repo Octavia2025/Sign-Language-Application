@@ -256,7 +256,7 @@ struct DuckVideoCard: View {
         )
     }
 }
-    
+    // Nature 
 struct NatureVideosCard: View {
     var body: some View {
         VStack(alignment: .leading) {
