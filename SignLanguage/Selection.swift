@@ -16,8 +16,6 @@ struct Selection: View {
                     AnimalsFoodNature()
                     
                 }
-                NavigationLink("Emotions"){}
-                NavigationLink("Weather"){}
                 NavigationLink("Colors"){Colors()}
                 NavigationLink("Feelings and emotions"){}
                 NavigationLink("Daily activities, Actions, and Verbs"){}

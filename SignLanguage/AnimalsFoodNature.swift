@@ -43,15 +43,37 @@ struct AnimalsFoodNature: View {
                             RabbitVideoCard()
                         }
                         if searchMatches("Pig") {
-                            PigVideoCard()
+                            /Users/octaviamucheche/Desktop/SignLanguage/SignLanguage/FishZ 2.mov                            PigVideoCard()
                         }
                         if searchMatches("Duck"){
                             DuckVideoCard()
                         }
                        
                         NatureVideosCard()
-                        
-                            
+                        if searchMatches("Cave"){
+                            CaveVideoCard()
+                        }
+                        if searchMatches("Sand"){
+                            SandVideoCard()
+                        }
+                        if searchMatches("Tree"){
+                            TreeVideoCard()
+                        }
+                        if searchMatches("Grass"){
+                            GrassVideoCard()
+                        }
+                        if searchMatches("Water"){
+                            WaterVideoCard()
+                        }
+                        if searchMatches("River"){
+                            RiverVideoCard()
+                        }
+                        if searchMatches("Lightning"){
+                            LightningVideoCard()
+                        }
+                        if searchMatches("Rain"){
+                            RainVideoCard()
+                        }
                     }
                     .padding()
                 }
@@ -271,9 +293,182 @@ struct NatureVideosCard: View {
 
 
 
+// Cave
+struct CaveVideoCard: View {
+    let videoNames = ["Cave ZSL", "Cave ASL"]
 
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
 
+    var body: some View {
+        VideoCardView(
+            title: "Cave - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Sand
+struct SandVideoCard: View {
+    let videoNames = ["Sand ZSL", "Sand ASL"]
 
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Sand - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Tree
+struct TreeVideoCard: View {
+    let videoNames = ["Tree ZSL", "Tree ASL"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Tree - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Grass
+struct GrassVideoCard: View {
+    let videoNames = ["Grass ZSL", "Grass ASL"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Grass - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+// Water
+struct WaterVideoCard: View {
+    let videoNames = ["Water ZSL", "Water ASL"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Water - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//River
+struct RiverVideoCard: View {
+    let videoNames = ["River ZSL", "River ASL"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "River - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Lightning
+struct LightningVideoCard: View {
+    let videoNames = ["Lightning ZSL", "Lightning ASL"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Lightning - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Rain
+struct RainVideoCard: View {
+    let videoNames = ["Rain ZSL", "Rain ASL"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Rain - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
 // Shared Video Card View
 
 struct VideoCardView: View {
