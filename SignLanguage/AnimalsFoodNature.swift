@@ -43,7 +43,7 @@ struct AnimalsFoodNature: View {
                             RabbitVideoCard()
                         }
                         if searchMatches("Pig") {
-                            /Users/octaviamucheche/Desktop/SignLanguage/SignLanguage/FishZ 2.mov                            PigVideoCard()
+                            PigVideoCard()
                         }
                         if searchMatches("Duck"){
                             DuckVideoCard()
