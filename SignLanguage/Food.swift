@@ -46,7 +46,9 @@ struct Food: View {
                         if searchMatches("Mango"){
                                 MangoVideoCard()
                         }
-                            
+                        if searchMatches("Meat"){
+                                MeatVideoCard()
+                        }
                     }
                     .padding()
                 }
@@ -222,9 +224,29 @@ struct MangoVideoCard: View {
     }
 }
 
+// Meat
 
+struct MeatVideoCard: View {
+    let videoNames = ["Meat ZSL", "Meat ASL"]
 
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
 
+    var body: some View {
+        VideoCardView(
+            title: "Meat - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
 
 // Shared Video Card View
 
