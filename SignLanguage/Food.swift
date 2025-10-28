@@ -1,15 +1,14 @@
 //
-//  Colors.swift
+//  Food.swift
 //  SignLanguage
 //
-//  Created by Octavia Mucheche on 10/23/25.
+//  Created by Octavia Mucheche on 10/28/25.
 //
 
 import SwiftUI
 import AVKit
 
-
-struct Colors: View {
+struct Food: View {
     @State private var searchText = ""
 
     var body: some View {
@@ -25,39 +24,37 @@ struct Colors: View {
 
                 ScrollView {
                     VStack(spacing: 20) {
-                        if searchMatches("Black") {
-                            BlackVideosCard()
+                       
+                        if searchMatches("Apple"){
+                            AppleVideoCard()
                         }
-                        if searchMatches("Brown") {
-                            BrownVideosCard()
+                        if searchMatches("Banana"){
+                            BananaVideoCard()
                         }
-                        if searchMatches("Green") {
-                            GreenVideosCard()
+                        if searchMatches("Bread"){
+                            BreadVideoCard()
                         }
-                        if searchMatches("Orange") {
-                            OrangeVideosCard()
+                        if searchMatches("Orange"){
+                           OrangeVideoCard()
                         }
-                        if searchMatches("Pink") {
-                            PinkVideosCard()
+                        if searchMatches("Eggs"){
+                            EggsVideoCard()
                         }
-                        if searchMatches("Purple") {
-                            PurpleVideosCard()
+                        if searchMatches("Rice"){
+                            RiceVideoCard()
                         }
-                        if searchMatches("Red") {
-                            RedVideosCard()
+                        if searchMatches("Mango"){
+                                MangoVideoCard()
                         }
-                        if searchMatches("White"){
-                            WhiteVideosCard()
-                        }
-                        
                             
                     }
                     .padding()
                 }
-                .navigationTitle("Colors")
+                .navigationTitle("Food")
             }
         }
     }
+
 
     // Helper search filter
     private func searchMatches(_ name: String) -> Bool {
@@ -65,10 +62,9 @@ struct Colors: View {
     }
 }
 
-//  Red Video Card
-
-struct RedVideosCard: View {
-    let videoNames = ["red-Z-S-L", "red-A-S-L"]
+//Apple
+struct AppleVideoCard: View {
+    let videoNames = ["Apple ZSL", "Apple ASL"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
@@ -78,7 +74,7 @@ struct RedVideosCard: View {
 
     var body: some View {
         VideoCardView(
-            title: "Red - ZSL and ASL",
+            title: "Apple - ZSL and ASL",
             videoNames: videoNames,
             currentIndex: $currentIndex,
             firstPlayer: $firstPlayer,
@@ -89,10 +85,9 @@ struct RedVideosCard: View {
     }
 }
 
-//  White Video Card
-
-struct WhiteVideosCard: View {
-    let videoNames = ["white-Z-S-L", "white-A-S-L"]
+//Banana
+struct BananaVideoCard: View {
+    let videoNames = ["Banana ZSL", "Banana ASL"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
@@ -102,7 +97,7 @@ struct WhiteVideosCard: View {
 
     var body: some View {
         VideoCardView(
-            title: "White - ZSL and ASL",
+            title: "Banana - ZSL and ASL",
             videoNames: videoNames,
             currentIndex: $currentIndex,
             firstPlayer: $firstPlayer,
@@ -113,10 +108,9 @@ struct WhiteVideosCard: View {
     }
 }
 
-// Black Video Card
-
-struct BlackVideosCard: View {
-    let videoNames = ["blackZSL", "BlackASL"]
+//Bread
+struct BreadVideoCard: View {
+    let videoNames = ["Bread ZSL", "Bread ASL"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
@@ -126,7 +120,7 @@ struct BlackVideosCard: View {
 
     var body: some View {
         VideoCardView(
-            title: "Black - ZSL and ASL",
+            title: "Bread - ZSL and ASL",
             videoNames: videoNames,
             currentIndex: $currentIndex,
             firstPlayer: $firstPlayer,
@@ -137,10 +131,9 @@ struct BlackVideosCard: View {
     }
 }
 
-// Brown Video Card
-
-struct BrownVideosCard: View {
-    let videoNames = ["brownZSL", "brownASL"]
+//Orange
+struct OrangeVideoCard: View {
+    let videoNames = ["Orange ZSL", "Orange ASL"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
@@ -150,7 +143,7 @@ struct BrownVideosCard: View {
 
     var body: some View {
         VideoCardView(
-            title: "Brown - ZSL and ASL",
+            title: "Orange - ZSL and ASL",
             videoNames: videoNames,
             currentIndex: $currentIndex,
             firstPlayer: $firstPlayer,
@@ -161,10 +154,9 @@ struct BrownVideosCard: View {
     }
 }
 
-// Green Video Card
-
-struct GreenVideosCard: View {
-    let videoNames = ["greenZSL", "greenASL"]
+//Eggs
+struct EggsVideoCard: View {
+    let videoNames = ["Eggs ZSL", "Eggs ASL"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
@@ -174,7 +166,29 @@ struct GreenVideosCard: View {
 
     var body: some View {
         VideoCardView(
-            title: "Green - ZSL and ASL",
+            title: "Eggs - ZSL and ASL",
+            videoNames: videoNames,
+            currentIndex: $currentIndex,
+            firstPlayer: $firstPlayer,
+            secondPlayer: $secondPlayer,
+            isFirstPlayerActive: $isFirstPlayerActive,
+            rotationAngle: $rotationAngle
+        )
+    }
+}
+//Rice
+struct RiceVideoCard: View {
+    let videoNames = ["Rice ZSL", "Rice ASL"]
+
+    @State private var currentIndex = 0
+    @State private var firstPlayer = AVPlayer()
+    @State private var secondPlayer = AVPlayer()
+    @State private var isFirstPlayerActive = true
+    @State private var rotationAngle: Double = 0
+
+    var body: some View {
+        VideoCardView(
+            title: "Rice - ZSL and ASL",
             videoNames: videoNames,
             currentIndex: $currentIndex,
             firstPlayer: $firstPlayer,
@@ -185,34 +199,9 @@ struct GreenVideosCard: View {
     }
 }
 
-// Pink Video Card
-
-struct PinkVideosCard: View {
-    let videoNames = ["pink-Z-S-L", "pink-A-S-L"]
-
-    @State private var currentIndex = 0
-    @State private var firstPlayer = AVPlayer()
-    @State private var secondPlayer = AVPlayer()
-    @State private var isFirstPlayerActive = true
-    @State private var rotationAngle: Double = 0
-
-    var body: some View {
-        VideoCardView(
-            title: "Pink - ZSL and ASL",
-            videoNames: videoNames,
-            currentIndex: $currentIndex,
-            firstPlayer: $firstPlayer,
-            secondPlayer: $secondPlayer,
-            isFirstPlayerActive: $isFirstPlayerActive,
-            rotationAngle: $rotationAngle
-        )
-    }
-}
-
-// Orange Video Card
-
-struct OrangeVideosCard: View {
-    let videoNames = ["orange-Z-S-L","orange"]
+//Mango
+struct MangoVideoCard: View {
+    let videoNames = ["Mango ZSL", "Mango ASL"]
 
     @State private var currentIndex = 0
     @State private var firstPlayer = AVPlayer()
@@ -222,7 +211,7 @@ struct OrangeVideosCard: View {
 
     var body: some View {
         VideoCardView(
-            title: "Orange- ZSL and ASL",
+            title: "Mango - ZSL and ASL",
             videoNames: videoNames,
             currentIndex: $currentIndex,
             firstPlayer: $firstPlayer,
@@ -232,30 +221,6 @@ struct OrangeVideosCard: View {
         )
     }
 }
-// Purple Video Card
-
-struct PurpleVideosCard: View {
-    let videoNames = ["purple-Z-S-L", "purple-A-S-L"]
-
-    @State private var currentIndex = 0
-    @State private var firstPlayer = AVPlayer()
-    @State private var secondPlayer = AVPlayer()
-    @State private var isFirstPlayerActive = true
-    @State private var rotationAngle: Double = 0
-
-    var body: some View {
-        VideoCardView(
-            title: "Purple - ZSL and ASL",
-            videoNames: videoNames,
-            currentIndex: $currentIndex,
-            firstPlayer: $firstPlayer,
-            secondPlayer: $secondPlayer,
-            isFirstPlayerActive: $isFirstPlayerActive,
-            rotationAngle: $rotationAngle
-        )
-    }
-}
-    
 
 
 
@@ -263,7 +228,7 @@ struct PurpleVideosCard: View {
 
 // Shared Video Card View
 
-struct VideosCardView: View {
+struct videosCardView: View {
     let title: String
     let videoNames: [String]
 
@@ -335,5 +300,5 @@ struct VideosCardView: View {
 }
 
 #Preview {
-    Colors()
+   Food()
 }

@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		460397E02EB0CA4B00AFD612 /* Cave ZSL.mov in Resources */ = {isa = PBXBuildFile; fileRef = 460397DF2EB0CA4B00AFD612 /* Cave ZSL.mov */; };
+		460397E22EB0CA6600AFD612 /* Grass ASL.mov in Resources */ = {isa = PBXBuildFile; fileRef = 460397E12EB0CA6600AFD612 /* Grass ASL.mov */; };
+		460397E42EB0CA8400AFD612 /* Grass ZSL.mov in Resources */ = {isa = PBXBuildFile; fileRef = 460397E32EB0CA8400AFD612 /* Grass ZSL.mov */; };
+		460397E62EB0CA9800AFD612 /* Lightning ASL.mov in Resources */ = {isa = PBXBuildFile; fileRef = 460397E52EB0CA9800AFD612 /* Lightning ASL.mov */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		462A7AB72EA63A7E005240D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		460397DF2EB0CA4B00AFD612 /* Cave ZSL.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Cave ZSL.mov"; sourceTree = "<group>"; };
+		460397E12EB0CA6600AFD612 /* Grass ASL.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Grass ASL.mov"; sourceTree = "<group>"; };
+		460397E32EB0CA8400AFD612 /* Grass ZSL.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Grass ZSL.mov"; sourceTree = "<group>"; };
+		460397E52EB0CA9800AFD612 /* Lightning ASL.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Lightning ASL.mov"; sourceTree = "<group>"; };
 		462A7AA92EA63A7C005240D7 /* SignLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		462A7AB62EA63A7E005240D7 /* SignLanguageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignLanguageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		462A7AC02EA63A7E005240D7 /* SignLanguageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignLanguageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +90,10 @@
 				462A7AB92EA63A7E005240D7 /* SignLanguageTests */,
 				462A7AC32EA63A7E005240D7 /* SignLanguageUITests */,
 				462A7AAA2EA63A7C005240D7 /* Products */,
+				460397DF2EB0CA4B00AFD612 /* Cave ZSL.mov */,
+				460397E12EB0CA6600AFD612 /* Grass ASL.mov */,
+				460397E32EB0CA8400AFD612 /* Grass ZSL.mov */,
+				460397E52EB0CA9800AFD612 /* Lightning ASL.mov */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +227,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460397E42EB0CA8400AFD612 /* Grass ZSL.mov in Resources */,
+				460397E62EB0CA9800AFD612 /* Lightning ASL.mov in Resources */,
+				460397E02EB0CA4B00AFD612 /* Cave ZSL.mov in Resources */,
+				460397E22EB0CA6600AFD612 /* Grass ASL.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

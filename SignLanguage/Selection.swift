@@ -12,21 +12,18 @@ struct Selection: View {
         NavigationView{
             List(){
                 
-                NavigationLink("Animals and Nature"){
-                    AnimalsFoodNature()
+                NavigationLink("Animals, Food and Nature"){
+                    AnimalsNature()
+                    
                 }
-                NavigationLink("Emotions"){}
-                NavigationLink("Weather"){}
-                NavigationLink("Colors"){}
-                NavigationLink("Food and beverages"){}
+                NavigationLink("Food"){Food()}
+                NavigationLink("Colors"){Colors()}
                 NavigationLink("Feelings and emotions"){}
-                NavigationLink("Daily activities, Actions, and Verbs"){}
-                NavigationLink("Greetings"){}
+                NavigationLink("Days and Months"){}
                 NavigationLink("Family and Relationships"){}
                 NavigationLink("Health and Body parts"){}
-                NavigationLink("Recreation and  hobbies"){}
                 NavigationLink("School and work"){}
-                
+                NavigationLink("Daily activities, Actions, and Verbs"){}
             }
         }
     }
